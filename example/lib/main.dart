@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:io';
 
-import 'package:flutter/services.dart';
 import 'package:abc_plugin/abc_plugin.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -56,11 +57,15 @@ class _MyAppState extends State<MyApp> {
               FlatButton(
                   onPressed: () async {
                     if (await AbcPlugin.canPay()) {
-                      String result=await AbcPlugin.requestPay('com.rhyme.abc_plugin_example',
-                          'MainActivity', 'pay', 'ON20140954103');
+                      String result = await AbcPlugin.requestPay(
+                          'com.rhyme.abc_plugin_example',
+                          Platform.isIOS ? 'abc_example' : 'MainActivity',
+                          'pay',
+                          'ON20140954103');
                       print(result);
-                    }else{
-                      _state.currentState.showSnackBar(SnackBar(content: Text('请下载中国农业银行app')));
+                    } else {
+                      _state.currentState.showSnackBar(
+                          SnackBar(content: Text('请下载中国农业银行app')));
                     }
                   },
                   child: Text('调起支付'))
