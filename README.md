@@ -48,13 +48,13 @@ String result = await AbcPlugin.requestPay(
 ```
 各参数介绍:
 
-`com.rhyme.abc_plugin_example`为你android的包名
+- `com.rhyme.abc_plugin_example`为你android的包名
 
-`abc_example`和`MainActivity`如果是IOS则是UrlScheme，如果是Android则是对应的Activity
+- `abc_example`和`MainActivity`如果是IOS则是UrlScheme，如果是Android则是对应的Activity
 
-`pay` 目前只支持pay方法,所以固定的
+- `pay` 目前只支持pay方法,所以固定的
 
-`ON20140954103` 为你的tokenId，通过服务器获取
+- `ON20140954103` 为你的tokenId，通过服务器获取
 
 返回参数内容介绍:
 ```
